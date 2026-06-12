@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>NACOS 2026 | Faculty of Computing</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Font for cleaner look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="glass-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>NACOS 2026</h1>
+            <p class="faculty">Faculty of Computing</p>
+        </div>
+
+        <!-- Main Live Section -->
+        <div class="live-section">
+            <div class="now-card">
+                <span class="label">⚡ NOW:</span>
+                <span class="activity-name" id="currentActivity">Loading...</span>
+            </div>
+            <div class="countdown" id="countdownDisplay">--:--:--</div>
+        </div>
+
+        <!-- Up Next Section -->
+        <div class="upnext-section">
+            <span class="label-small">⏩ UP NEXT:</span>
+            <span class="next-name" id="nextActivity">---</span>
+        </div>
+
+        <!-- Schedule Button -->
+        <button id="showScheduleBtn" class="schedule-btn">📅 View Full Schedule</button>
+    </div>
+
+    <!-- Modal Background -->
+    <div id="modal" class="modal">
+        <div class="modal-content glass-modal">
+            <div class="modal-header">
+                <h2>📋 Event Schedule</h2>
+                <button id="closeModalBtn" class="close-btn">&times;</button>
+            </div>
+            <div id="scheduleList" class="schedule-list">
+                <!-- JS will inject schedule here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
