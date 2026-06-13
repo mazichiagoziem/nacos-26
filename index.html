@@ -4,47 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>NACOS 2026 | Faculty of Computing</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Google Font for cleaner look -->
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="glass-container">
+<body class="min-h-screen bg-gradient-to-br from-[#d0e7a0] to-[#a3c96a] flex justify-center items-center p-5 font-[Inter]">
+
+    <!-- Main Card -->
+    <div class="glass-card max-w-lg w-full rounded-3xl p-8 text-center shadow-xl transition-all">
+        
         <!-- Header -->
-        <div class="header">
-            <h1>NACOS 2026</h1>
-            <p class="faculty">Faculty of Computing</p>
+        <div>
+            <h1 class="text-4xl font-bold text-[#1e3a1e] tracking-tight">NACOS 2026</h1>
+            <p class="text-sm font-medium text-[#2c5e2c] mt-1.5 opacity-90">Faculty of Computing</p>
         </div>
 
-        <!-- Main Live Section -->
-        <div class="live-section">
-            <div class="now-card">
-                <span class="label">⚡ NOW:</span>
-                <span class="activity-name" id="currentActivity">Loading...</span>
+        <!-- Live Section -->
+        <div class="bg-[#1e3a1e]/15 rounded-2xl py-6 px-4 my-7">
+            <div class="flex items-baseline justify-center flex-wrap gap-2 mb-5">
+                <span class="text-sm font-bold bg-[#1e3a1e] px-3 py-1.5 rounded-full text-[#e9f5db] tracking-wide">⚡ NOW:</span>
+                <span id="currentActivity" class="text-xl md:text-2xl font-bold text-[#0f2b0f] bg-white/50 px-4 py-1.5 rounded-full break-words max-w-full">Loading...</span>
             </div>
-            <div class="countdown" id="countdownDisplay">--:--:--</div>
+            <div id="countdownDisplay" class="text-3xl md:text-4xl font-mono font-extrabold bg-[#1e3a1e]/80 inline-block px-6 py-2 rounded-full text-[#e9f5db] tracking-wider">--:--:--</div>
         </div>
 
         <!-- Up Next Section -->
-        <div class="upnext-section">
-            <span class="label-small">⏩ UP NEXT:</span>
-            <span class="next-name" id="nextActivity">---</span>
+        <div class="bg-[#1e3a1e]/10 rounded-full py-3 px-5 my-3 flex justify-center gap-3 flex-wrap">
+            <span class="font-semibold text-[#1a3a1a]">⏩ UP NEXT:</span>
+            <span id="nextActivity" class="font-semibold text-[#0c260c] break-words">---</span>
         </div>
 
         <!-- Schedule Button -->
-        <button id="showScheduleBtn" class="schedule-btn">📅 View Full Schedule</button>
+        <button id="showScheduleBtn" class="bg-[#1e3a1e] py-3.5 px-6 rounded-full text-base font-semibold text-[#f0f7e6] cursor-pointer transition-all hover:bg-[#2b552b] hover:scale-95 w-4/5 shadow-md">
+            📅 View Full Schedule
+        </button>
     </div>
 
-    <!-- Modal Background -->
-    <div id="modal" class="modal">
-        <div class="modal-content glass-modal">
-            <div class="modal-header">
-                <h2>📋 Event Schedule</h2>
-                <button id="closeModalBtn" class="close-btn">&times;</button>
+    <!-- Modal -->
+    <div id="modal" class="hidden fixed top-0 left-0 w-full h-full bg-black/50 backdrop-blur-sm justify-center items-center z-[1000]">
+        <div class="glass-card max-w-md w-[90%] max-h-[80vh] overflow-y-auto p-5 rounded-3xl animate-fadeSlideUp">
+            <div class="flex justify-between items-center border-b-2 border-[#1e3a1e]/40 pb-3 mb-4">
+                <h2 class="text-[#1c3e1c] text-2xl font-semibold">📋 Event Schedule</h2>
+                <button id="closeModalBtn" class="text-3xl text-[#1e3a1e] font-bold cursor-pointer">&times;</button>
             </div>
-            <div id="scheduleList" class="schedule-list">
-                <!-- JS will inject schedule here -->
-            </div>
+            <div id="scheduleList" class="flex flex-col gap-3"></div>
         </div>
     </div>
 
